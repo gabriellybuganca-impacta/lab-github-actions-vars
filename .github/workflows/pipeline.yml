@@ -50,3 +50,6 @@ jobs:
         run: |
           echo "URL: ${{ vars.URL_AMBIENTE }}"
           echo "TOKEN: ${{ secrets.API_TOKEN_PROD }}"
+
+
+# update
