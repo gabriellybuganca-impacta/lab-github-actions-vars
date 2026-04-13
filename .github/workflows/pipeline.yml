@@ -1,52 +1,11 @@
-name: Desafio de Variaveis e Escopos
+name: DesafioVariaveis
 
 on:
   workflow_dispatch:
 
-env:
-  APP_NAME: MinhaApp
-
 jobs:
-  build_app:
+  teste:
     runs-on: ubuntu-latest
-
-    env:
-      BUILD_VERSION: 1.0.0
-
     steps:
-      - name: Passo 1: Variaveis em Escopos Diferentes
-        run: |
-          echo "App: $APP_NAME"
-          echo "Versao: $BUILD_VERSION"
-
-      - name: Passo 2: Observando o Escopo da STEP_TEMP
-        env:
-          STEP_TEMP: temp123
-        run: |
-          echo "Variavel temporaria: $STEP_TEMP"
-
-      - name: Passo 2 - tentativa de acesso fora do escopo
-        run: |
-          echo "Tentando acessar STEP_TEMP: $STEP_TEMP"
-
-      - name: Passo 3: Auditoria com Variaveis Padrao
-        run: |
-          echo "O usuario $GITHUB_ACTOR disparou este workflow no repositorio $GITHUB_REPOSITORY. O sistema operacional do runner e $RUNNER_OS."
-
-      - name: Passo 4: Gerar Codigo Dinamico
-        run: |
-          RANDOM_NUM=$RANDOM
-          echo "BUILD_HASH=$RANDOM_NUM" >> $GITHUB_ENV
-
-      - name: Passo 5: Usar Codigo Dinamico
-        run: |
-          echo "O hash gerado para este build foi: $BUILD_HASH"
-
-  deploy_app:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Passo 6: Acessando Secrets e Vars
-        run: |
-          echo "URL: ${{ vars.URL_AMBIENTE }}"
-          echo "TOKEN: ${{ secrets.API_TOKEN_PROD }}"
+      - name: teste
+        run: echo "funcionando"
